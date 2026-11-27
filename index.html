@@ -242,7 +242,7 @@ const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const DAYS=Array.from({length:24},(_,i)=>{const d=new Date(2026,11,i+1);return{n:i+1,dow:d.getDay(),key:String(i+1).padStart(2,'0')}});
 const KEYS=new Set(DAYS.map(d=>d.key));
 const MEALS=[['lunch','Lunch'],['dinner','Dinner']];
-const SB_URL='https://ohzldueudnurebrdfdjq.supabase.co',SB_KEY='__SB_KEY__';
+const SB_URL='https://ohzldueudnurebrdfdjq.supabase.co',SB_KEY='sb_publishable_ZQFwMi9pgpu5Y53Ie6J6zg_Ad_6uB_B';
 let myId=null,cred=null,crew=new Map(),me={name:'',lunch:[],dinner:[]},joined=false,saving=false,dirty=false,saveT=null,loaded=false;
 const rpc=async(fn,body={})=>{const r=await fetch(`${SB_URL}/rest/v1/rpc/${fn}`,{method:'POST',headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});const t=await r.text();if(!r.ok)throw new Error(t);return t?JSON.parse(t):null};
 const uuid=()=>crypto.randomUUID?crypto.randomUUID():'10000000-1000-4000-8000-100000000000'.replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16));
